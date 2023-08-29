@@ -10,13 +10,19 @@ import java.io.PrintWriter;
  */
 public class FileHelper {
 
-    public static void writeToFile (String s) throws IOException
+    public static void writeToFile (String fileText) throws IOException
     {
-        
+        PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter("output.txt")));
+        printWriter.print(fileText);
+        printWriter.close();
     }
 
     public static String readFromFile () throws IOException
     {
-       
+        BufferedReader bufferedReader = new BufferedReader (new FileReader("input.txt"));
+        String fileText = bufferedReader.readLine();
+        bufferedReader.close();
+
+        return fileText;
     }
 }

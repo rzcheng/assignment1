@@ -9,25 +9,25 @@ import java.io.PrintWriter;
  * FileHelper
  */
 public class FileHelper {
-    public static void writeToFile (String fileText) throws IOException
+    public static void writeToFile (String fileName, String fileText) throws IOException
     {
-        PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter("output.txt")));
+        PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter(fileName)));
         printWriter.print(fileText);
         printWriter.close();
     }
 
-    public static String readFromFile () throws IOException
+    public static String readFromFile (String fileName) throws IOException
     {
-        BufferedReader bufferedReader = new BufferedReader (new FileReader("input.txt"));
+        BufferedReader bufferedReader = new BufferedReader (new FileReader(fileName));
         String fileText = bufferedReader.readLine();
         bufferedReader.close();
 
         return fileText;
     }
 
-    public int countCharacters (String fileName) throws IOException
+    public static int countCharacters (String fileName) throws IOException
     {
-        String file = readFromFile ();
+        String file = readFromFile(fileName);
         return file.length();
     }
 }

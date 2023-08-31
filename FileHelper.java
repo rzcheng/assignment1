@@ -9,7 +9,6 @@ import java.io.PrintWriter;
  * FileHelper
  */
 public class FileHelper {
-
     public static void writeToFile (String fileText) throws IOException
     {
         PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter("output.txt")));
@@ -24,5 +23,11 @@ public class FileHelper {
         bufferedReader.close();
 
         return fileText;
+    }
+
+    public int countCharacters (String fileName) throws IOException
+    {
+        String file = readFromFile ();
+        return file.length();
     }
 }
